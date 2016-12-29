@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>counter</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	ul{
+		counter-reset:test 0;
+		list-style-type:none; 
+	}
+	ul li:before{
+		counter-increment: test 1;		
+		content:counters(test,'.')' ';
+	}	
+</style>
+</head>
+<body>
+    <ul>
+    	<li>第一条:随着珠海航展开幕式的临近</li>
+    	<li>第二条:多个国产装备陆续抵达珠海航展现场</li>
+    	<li>第三条:包括航母杀手--CM302超音速海防导弹
+    		<ul>
+    			<li>近日中国相关单位宣布将会在珠海航展上面展出CM-302超音速海防导弹系统</li>
+    			<li>随着珠海航展开幕式的临近，多个国产装备陆续抵达珠海航展现场</li>
+    			<li>包括航母杀手--CM302超音速海防导弹</li>
+    		</ul>
+    	</li>
+    	<li>第四条:从这个描述来看，CM-302应该是国产YJ-12导弹的出口型</li>
+    	<li>第五条:是一款使用冲压发动机，能长时间以2-3倍音速飞行
+    		<ul>
+    			<li>大幅提升了突防能力</li>
+    			<li>大幅提升了突防能力</li>
+    			<li>大幅提升了突防能力</li>
+    			<li>大幅提升了突防能力</li>
+    		</ul>
+    	</li>
+    	<li>第六条:相比常见的反舰导弹打击所需时间更短</li>
+    </ul>
+</body>
+</html>

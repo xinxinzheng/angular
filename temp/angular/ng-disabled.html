@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<title>ng-disabled</title>
+<script src="angular.js"></script>
+</head>
+<body>
+    <input type="text" ng-model="someProperty" placeholeder="TypetoEnable" />
+    <button ng-model="button" ng-disabled="!someProperty">ABUTTON</button>
+    <textarea ng-disabled="isDisabled">test</textarea>
+    <script>
+    angular.module('myApp',[]).run(function($rootScope,$timeout){
+    	$rootScope.isDisabled = true;
+    	$timeout(function() {
+    		$rootScope.isDisabled = false;
+    	}, 5000);
+    });
+    </script>
+</body>
+</html>

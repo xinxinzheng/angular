@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ng-click</title>
+<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+    <div ng-controller="CounterController">
+    	<button ng-click="counter = counter + 1 " ng-init="counter=0">Increment</button>
+    	count:{{counter}}
+    	<button ng-click="decrement()">Decrement</button>
+    </div>
+    <script type="text/javascript">
+    angular.module('myApp', [])
+    .controller('CounterController', function($scope){
+    	$scope.decrement = function(){
+    		$scope.counter = $scope.counter - 1;
+    	}
+    })
+    </script>
+</body>
+</html>

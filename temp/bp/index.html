@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>BigPlorer登录</title>
+<script type="text/javascript" src="/static/js/lib/jquery-1.11.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/login.css">
+</head>
+<body>
+<form novalidate class="loginForm">
+	<!-- <div class="row">	
+		<label for="username">用户名：</label>
+		<input type="text" name="username" placeholder="请输入用户名" id="username">
+	</div>
+	<div class="row">	
+		<label for="password">密码：</label>
+		<input type="password" name="password" placeholder="请输入密码" id="password">
+	</div>
+	<div class="row">
+		<button type="button" id="submitBtn">登录</button>
+		<button type="reset">重置</button>
+	</div> -->
+</form>
+<script type="text/javascript">
+$('body').on('click', '#submitBtn', function(e){
+	e.preventDefault();
+
+	var username = $('#username').val();
+	var password = $('#password').val();
+	var paramsObj = {userName: username, password: password};
+
+	$.ajax({
+		type:'POST',
+		url:'http://w-r993.dfs.shjt.qihoo.net:50090/v1/user/login',
+		data: JSON.stringify(paramsObj),
+		success: function(msg){
+			var msg = JSON.parse(msg);
+			if(msg.errorCode === 0){
+				window.location.href = 'bp-index.html';
+			}else{
+				alert(msg.errorMsg);
+			}
+		},
+		error: function(err){
+			console.log(err);
+		}
+	})
+})
+</script>
+</body>
+</html>

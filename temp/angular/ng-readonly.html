@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<script src="angular.js"></script>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    Type here to make sibling readonly:
+    <input type="text" ng-model="someProperty"></br>
+    <input type="text" ng-readonly="someProperty" value="some text here">
+    <script>
+    	angular.module('myApp', []);
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>qq</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body{
+		padding:10%;
+	}
+	.qq{
+		position:relative;
+		width:400px;
+		height:400px;
+	}
+	.head{
+		width:200px;
+		height:160px;
+		position: absolute;
+		left:50%;
+		background-image:linear-gradient(to top , #130D0F 30% , #18151C 60% , #19161F 100%);
+		border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+		transform:translateX(-50%);	
+		z-index:10;	
+	}
+	.mouse{
+		width:120px;
+		height:50px;
+		position: absolute;
+		bottom:20px;
+		left:50%;
+		transform:translateX(-50%);
+		border-radius:50% 50% 50% 50% / 50% 50% 50% 50%;
+		background-image:radial-gradient(ellipse , #FBC318 20% , #F9970E 70% , #CD9443 100%);
+	}
+	.mouse::after{
+		content:'';
+		display:block;
+		width:75%;
+		height:80%;
+		position:absolute;
+		left:50%;
+		bottom:-5px;
+		transform:translateX(-50%);
+		border-radius:50% 50% 50% 50% / 30% 30% 70% 70%;
+		background-image:linear-gradient(160deg ,#F5AA1B 5% ,transparent 0 , #FFF448 30% , #FEC722 50% , #FBA60B 70% , #F99911 100%);
+		box-shadow:inset 0px -4px 0 0 #341D00 ,
+				   inset 0px -10px 0 0 rgba(254,206,42,.7) ;
+				   /*inset 0px -20px 0 0 #FCCD1F ;*/
+	}
+	.eyes{
+		width:40px;
+		height:55px;
+		position:absolute;
+		top:20%;
+		left:20%;
+		background-color:white;
+		border-radius:50%/50%;
+		transform:rotate(-10deg);
+		/*background-image:radial-gradient(ellipse , );*/
+	}
+	.eyes-right{
+		transform:rotate(-170deg);
+		left:60%;
+		/*top:30%;*/
+	}
+	.eyes::after{
+		content:'';
+		width:15px;
+		height:25px;
+		position:absolute;
+		top:30%;
+		left:60%;
+		border-radius:50%/50%;
+		/*transform:rotate(-10deg);*/
+		background-image:radial-gradient(#FFFFFF 2% , #272822 40% , #000000 100%);
+	}
+	.neck{
+		position:absolute;
+		left:50%;
+		top:110px;
+		height:40px;
+		width:195px;
+		border-radius:100px 100px 100px 100px / 10px 10px 30px 30px ;
+		z-index:11;
+		box-shadow:0 20px 0 0 #CB210A ,
+				   0 21px 0 0 #465C4A ,
+				   0 30px 0 0 #CB210A ;
+				   /*inset 0 -15px 0 0 #F22603 ;*/
+		transform:translateX(-50%);
+	}
+	
+	.tao{
+		position: absolute;
+		top:40px;
+		width:50px;
+		height:60px;
+		left:30px;
+		border-radius:40% 40% 20px 10px / 80% 50% 10px 5px;
+		background-color:#CB210A;
+		box-shadow:0 2px 0 0 black;
+	}
+
+	.body{
+		position:absolute;
+		left:50%;
+		top:100px;
+		width:250px;
+		height:250px;
+		border-radius:50% 50% 50% 50% /50% 50% 50% 50%;
+		background-image:linear-gradient(to top , #130D0F 30% , #18151C 60% , #19161F 100%);
+		transform:translateX(-50%);
+	}
+	.body::after{
+		content:'';
+		display:block;
+		position: absolute;
+		bottom:5px;
+		left:50%;
+		width:200px;
+		height:200px;
+		background-color:white;
+		border-radius:50% 50% 50% 50% /50% 50% 50% 50%;
+		transform:translateX(-50%);
+	}
+	.arg{
+		position:absolute;
+		width:50px;
+		height:120px;
+		top:40px;
+		left:-10%;
+		border-radius:100%;
+		background-color:black;
+		z-index:2;
+		transform:rotate(40deg);
+		box-shadow:-5px -7px 0 0 black;
+	}
+	.arg-right{
+		transform:rotate(330deg);
+		left:230px;
+		box-shadow:-5px -7px 0 0 black;
+	}
+
+	.foot{
+		position:absolute;
+		top:320px;
+		left:90px;
+		width:80px;
+		height:50px;
+		border-radius:50%/50%;
+		background-image:radial-gradient(#FBCE41 0% , #F3B806 40%,#EE8A10 70%,#BB6421 100%);
+		box-shadow:0 2px 0 0 black;
+		z-index:-1;
+		transform:rotate(-10deg);
+	}
+	.foot-right{
+		left:240px;
+		transform:rotate(-350deg);
+	}
+</style>
+</head>
+<body>
+	<div class="qq">
+	    <div class="head">
+	    	<div class="eyes eyes-left"></div>
+	    	<div class="eyes eyes-right"></div>
+	    	<div class="mouse"></div>
+	    </div>
+	    <div class="neck">
+	    	<div class="tao"></div>
+	    </div>
+	    <div class="body">
+	    	<div class="arg arg-left"></div>
+	    	<div class="arg arg-right"></div>
+	    </div>
+	    <div>
+	    	<div class="foot foot-left"></div>
+	    	<div class="foot foot-right"></div>
+	    </div>
+    </div>
+</body>
+</html>

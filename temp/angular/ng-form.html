@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ng-form</title>
+<script type="text/javascript" src="angular.js"></script>
+<style type="text/css">
+	input.ng-invalid{
+		border:1px solid red;
+	}
+	input.ng-valid{
+		border:1px solid green
+	}
+	.error{
+		color:red;
+	}
+</style>
+</head>
+<body>
+    <div>
+    	<form name="signup_form" ng-controller="FormController" ng-submit="submitForm()" novalidate>
+    		<div ng-repeat="feild in feilds" ng-form="signup_form_input">
+    			<input name="dynamic_input" ng-model="feild.placeholder" ng-placeholder="feild.placeholder" ng-required="feild.isRequired">
+    		</div>
+    		{{signup_form_input.dynamic_input.$dirty}}{{signup_form_input.dynamic_input.$invalid}}
+    		<div ng-show="signup_form_input.dynamic_input.$dirty && signup_form_input.dynamic_input.$invalid">
+    			{{signup_form_input.dynamic_input.$error.required}}
+    			<span class="error" ng-show="signup_form_input.dynamic_input.$error.required">
+    				the feild is required
+    			</span>
+    		</div>
+    		<button type="submit" ng-disabled="signup_form.$invalid">submit all</button>
+    	</form>
+    </div>
+    <script type="text/javascript">
+    angular.module('myApp',[])
+    .controller('FormController', function($scope){
+    	$scope.feilds = [
+    		{
+    			placeholder:'usernsme',isRequired:true
+    		},{
+    			placeholder:'pwd',isRequired:true
+    		},{
+    			placeholder:'email',isRequired:true
+    		}
+    	];
+    	$scope.submitForm = function(){
+    		console.log('it works');
+    	}
+    })
+    </script>
+</body>
+</html>

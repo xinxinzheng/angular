@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+    <div ng-controller="nameController">
+			父级scope中：<input ng-model="mark" ng-change='test()'/>
+			<direct model="mark"/></direct>
+ 		</div>
+ <script>
+ 	angular.module('myApp',[])
+ 	.directive("direct",function(){
+ 		console.log(1);
+    return{
+			restrict: 'ECMA',
+			template: '<div>指令中：<input ng-model="model"/></div>',
+			scope:{
+				model:'='
+			}
+ 		} 
+  }) 
+.controller("nameController",function($scope){
+  $scope.data=[{name:"张三"},{name:"李四"}]; 
+  $scope.test = function(){
+  		console.log($scope.mark,'------');
+  }
+});
+ </script>
+</body>
+</html>

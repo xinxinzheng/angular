@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>小透明的随笔</title>
+<script type="text/javascript" src="module/jquery-3.1.1.min.js"></script>
+<link href="css/index.css" rel="stylesheet">
+<link href="css/common/login.css" rel="stylesheet">
+</head>
+<body>
+    <div controller="LoginCtrl" class="login">
+    	<input type="text" ng-modal="username" placeholder="用 户 名">
+    	<input type="text" ng-modal="password" placeholder="密 码">
+    	<button class="btn logBtn" ng-click="$scope.login">登录</button>
+    </div>
+    <div class="bubble b-pink pink1">
+    	<!--<div class="water"></div>-->
+    </div>
+    <div class="bubble b-pink pink">
+        <!--<div class="water"></div>-->
+    </div>
+    <div class="bubble b-blue blue">
+        <!--<div class="water"></div>-->
+    </div>
+    <div class="bubble b-blue blue1">
+        <!--<div class="water"></div>-->
+    </div>
+    <div class="bubble b-yellow yellow">
+        <!--<div class="water"></div>-->
+    </div>
+    <div class="bubble b-yellow yellow1">
+        <!--<div class="water"></div>-->
+    </div>
+    <div class="bubble b-red red">
+        <!--<div class="water"></div>-->
+    </div>
+    <div class="bubble b-red red1">
+        <!--<div class="water"></div>-->
+    </div>
+    <div class="bubble b-orange orange">
+        <!--<div class="water"></div>-->
+    </div>
+    <div class="bubble b-orange orange1">
+        <!--<div class="water"></div>-->
+    </div>
+    <div class="bubble b-pulple pulple1">
+        <!--<div class="water"></div>-->
+    </div>
+    <div class="bubble b-pulple pulple">
+        <!--<div class="water"></div>-->
+    </div>
+    <script>
+    function InitBubble(){
+        var blue = $("div.blue") , red = $("div.red") , pink = $("div.pink") , 
+            orange = $("div.orange") , pulple = $("div.pulple") , yellow = $("div.yellow") ,
+            blue1 = $("div.blue1") , red1 = $("div.red1") , pink1 = $("div.pink1") , 
+            orange1 = $("div.orange1") , pulple1 = $("div.pulple1") , yellow1 = $("div.yellow1") ,
+            blueleft = Math.random() * 1500 , bluebottom = Math.random() * 800 ,
+            redleft = Math.random() * 1600 , redbottom = Math.random() * 900 ,
+            pinkleft = Math.random() * 1700 , pinkbottom = Math.random() * 1000 ,
+            orangeleft = Math.random() * 1800 , orangebottom = Math.random() * 1100 ,
+            pulpleleft = Math.random() * 1900 , pulplebottom = Math.random() * 700 ,
+            yellowleft = Math.random() * 2000 , yellowbottom = Math.random() * 600 ; 
+            blueleft1 = Math.random() * 1500 , bluebottom1 = Math.random() * 800 ,
+            redleft1 = Math.random() * 2300 , redbottom1 = Math.random() * 900 ,
+            pinkleft1 = Math.random() * 1600 , pinkbottom1 = Math.random() * 1000 ,
+            orangeleft1 = Math.random() * 1700 , orangebottom1 = Math.random() * 7000 ,
+            pulpleleft1 = Math.random() * 1800 , pulplebottom1 = Math.random() * 800 ,
+            yellowleft1 = Math.random() * 1900 , yellowbottom1 = Math.random() * 900 ; 
+            blue.css({left:blueleft, bottom:bluebottom});
+            red.css({left:redleft , bottom:redbottom});
+            pink.css({left:pinkleft , bottom:pinkbottom});
+            orange.css({left:orangeleft , bottom:orangebottom});
+            pulple.css({left:pulpleleft , bottom:pulplebottom});
+            yellow.css({left:yellowleft , bottom:yellowbottom});
+            blue1.css({left:blueleft1, bottom:bluebottom1});
+            red1.css({left:redleft1 , bottom:redbottom1});
+            pink1.css({left:pinkleft1 , bottom:pinkbottom});
+            orange1.css({left:orangeleft1 , bottom:orangebottom1});
+            pulple1.css({left:pulpleleft1 , bottom:pulplebottom1});
+            yellow1.css({left:yellowleft1 , bottom:yellowbottom1});
+    }
+        setTimeout(function(){InitBubble()},1000);
+        setInterval(function(){
+            InitBubble();
+        },6000);
+    	
+    </script>
+    <script type="text/javascript" src="js/all.js"></script>
+</body>
+</html>

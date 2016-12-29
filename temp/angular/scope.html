@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>scope</title>
+<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-init="someProperty='somedata'">
+    	<div ng-init="siblingProperty='moredata'">
+    		Inside div two : {{aThirdProperty}}
+    		<div ng-init="aThirdProperty='data for 3th property'" ng-controller="SomeController">
+    			Inside div three :{{aThirdProperty}}
+    			<div ng-controller="SecondController">
+    				Inside div four :{{aThirdProperty}}
+    				<br>
+    				outside myDirective {{myProperty}}
+    				<div my-directive ng-init="myProperty='wow , this is cool'">
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <script>
+    	angular.module('myApp', [])
+    	.controller('SomeController',function($scope){
+
+    	})
+    	.controller('SecondController',function($scope){
+
+    	})
+    	.directive('myDirective',function(){
+    		return{
+    			restrict:'A',
+    			scope:true,
+    			priority:100,
+    			replace:true,
+    			template:"<div >inside my directive {{myProperty}}</div>"
+    		};
+    	});
+    	
+    </script>
+</body>
+</html>

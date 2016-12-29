@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>robot</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+
+body{
+	background-color: #39ABF0;
+}	
+.robot{
+	width:400px;
+	height:552px;
+	position: relative;
+	margin-top:150px;
+	margin-left:300px;
+}
+.head, .neck, .body, .foot {
+    margin: auto;
+}
+.body {
+    position: relative;
+    width: 225px;
+    height: 200px;
+    background: #FFE259;
+    border-radius: 0 0 50% 50% / 0 0 30% 30%;
+    box-shadow:inset 0px 0px 0px 4px #F8AD92;
+    z-index:5;
+}
+.body::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #d9c04c 10px, transparent 0, transparent 100px, rgba(255, 245, 206, .8) 0, rgba(255, 245, 206, .9) 130px, transparent 0, transparent 140px, rgba(255, 245, 206, .8) 0, rgba(255, 245, 206, .8) 200px, transparent 0, transparent 215px, #d9c04c 0);
+    border-radius: 0 0 50% 50% / 0 0 60px 60px;
+}
+
+ .shoulder {
+    position: absolute;
+    box-sizing: border-box;
+    background: #ca9d39;
+    width: 225px;
+    height: 50px;
+    border-radius: 50% 50%;
+    transform: translateY(-50%);
+    box-shadow: inset 0 -1px 0 3px #edb843;
+    z-index: 10;
+}
+.hand {
+    background: #bbcccb;
+    position: absolute;
+    left: 0;
+    top: 33px;
+    transform: translateX(-100%);
+    width: 6px;
+    height: 80px;
+    border-radius: 3px 0 0 3px;
+    box-shadow: inset 0 -26px 0 0px #9faead;
+}
+.hand::after {
+    content: ' ';
+    display: block;
+    background: #f2f4f6;
+    position: absolute;
+    left: 0;
+    top: 7px;
+    transform: translateX(-100%);
+    width: 10px;
+    height: 66px;
+    border-radius: 5px 0 0 5px;
+    box-shadow: inset 0 -23px 0 0px #ced0d1;
+}
+.hand::before {
+    content: ' ';
+    display: block;
+    background: #5f797f;
+    position: absolute;
+    left: 0;
+    top: 27px;
+    transform: translateX(-100%);
+    width: 15px;
+    height: 26px;
+    border-radius: 5px 0 0 5px;
+    box-shadow: inset 0 -11px 0 0px #51676c;
+}
+.hand-right {
+    left: auto;
+    right: 0;
+    transform: translateX(100%) rotateY(180deg);
+}
+.foot {
+    position: relative;
+    box-sizing: border-box;
+    width: 78px;
+    height: 78px;
+    background: #364547;
+    border: 7px solid #405154;
+    border-radius: 50%;
+    transform: translateY(-57.7%);
+}
+.foot::before {
+    position: absolute;
+    bottom: -2px;
+    right: 12px;
+    content: ' ';
+    display: block;
+    width: 8px;
+    height: 13px;
+    background: rgba(232, 250, 255, 0.3);
+    border-radius: 50% / 50%;
+    transform: rotateZ(60deg);
+}
+.neck {
+    position: relative;
+    width: 43px;
+    height: 16px;
+    background: #4d5a5d;
+    border-radius: 50% / 50%;
+    z-index: 20;
+    box-shadow: inset 0 -1px 0 3px #364547;
+    transform: translateY(50%);
+}
+.neck::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #4d5a5d;
+    border-radius: 50% / 50%;
+    z-index: 20;
+    box-shadow: inset 0 -1px 0 3px #364547;
+    transform: translateY(-50%);
+}
+.head {
+    position: relative;
+    z-index: 30;
+    width: 266px;
+    height: 190px;
+    background: #ffe259;
+    top: -15px;
+    border-radius: 50% 50% 0 0 / 70% 70% 0 0 ;
+    background-image: radial-gradient(circle farthest-side at center top, transparent 96.5%, #d9c04c 0);
+}
+ /* light on the head */
+.head::before,
+.head::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 62%;
+    top: 2px;
+    left: 0;
+    border-radius: 100% 0 0 0;
+    box-shadow: inset 3px 11px 0 0 white;
+    transform: translate(2px,2px) scale(1, 0.98) rotateZ(1deg) skewY(-7deg);
+}
+.head::after {
+    transform: translate(-2px,2px) scale(1, 0.98) rotateY(180deg) rotateZ(1deg) skewY(-7deg);
+    left: auto;
+    right: 0;
+}
+.chin {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 275px;
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 50% / 3px 3px 60% 60%;
+    box-shadow: inset 0 -14px 0 0 #ced0d1, inset 0 -21px 0 0 #f2f4f6;
+    transform: translate(-50%, 52%);
+}
+
+.ear {
+    position: absolute;
+    z-index: 40;
+    top: 86px;
+    left: 0;
+    width: 8px;
+    height: 80px;
+    background: #5f797f;
+    border-radius: 3px 1px 1px 3px;
+    box-shadow: inset 0 -35px 0 0 #51676c;
+    background-image: linear-gradient(45deg, #51676c 45%, transparent 0);
+}
+.ear::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 20px;
+    height: 66px;
+    background: #ced0d1;
+    border-radius: 5px 0 0 5px;
+    transform: translateX(-100%);
+    background-image: radial-gradient(circle closest-side at center center, #f2f4f6, #f2f4f6 99%, transparent 0);
+    background-repeat: no-repeat;
+    background-size: 182%;
+    background-position: 80% 70%;
+}
+
+.ear::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 25px;
+    left: -20px;
+    width: 14px;
+    height: 28px;
+    background: #405154;
+    border-radius: 100% 0 0 100% / 50%;
+    transform: translateX(-100%);
+    background-image: radial-gradient(circle closest-side at center center, #859194, #859194 99%, transparent 0);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: 80% 15%;
+}
+.ear-right {
+    left: auto;
+    right: 0;
+    transform: rotateY(180deg);
+}
+.hat {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 50;
+    transform: translate(-50%, -50%) ;
+    width: 67px;
+    height: 17px;
+    background: #fff2b4;
+    border-radius: 50% / 30%;
+    box-shadow: inset 0 -8px 0 #ebaa1b;
+}
+
+.glass {
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    box-sizing: border-box;
+    width: 198px;
+    height: 80px;
+    border-radius: 10px 10px 50% 50% / 6px 6px 20% 20%;
+    border: 6px solid #5f797f;
+    border-top: none;
+    border-bottom-width: 2px;
+    box-shadow: inset 0 -4px 0 0 #5f797f,
+                inset 0 -61px 0 0 #454545,
+                inset 0 -68px 0 0 #5f797f;
+}
+
+.glass::before,
+.glass::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    top: 10px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: radial-gradient(white 7%, #4bfeff 17%, rgba(0, 247, 255, 1) 17%, rgba(0, 247, 255, .8) 27%, rgba(0, 247, 255, .3) 42%, transparent 57%);
+}
+
+.glass::before {
+    left: 10px;
+}
+
+.glass::after {
+    left: 106px;
+}
+.glass:hover::before,
+.glass:hover::after {
+    animation: blink linear 2 .25s;
+}
+
+@keyframes blink {
+    0% {transform:scaleY(1);}
+    40% {transform:scaleY(0);}
+    100% {transform:scaleY(1);}
+}
+.antenna {
+    position: absolute;
+    width: 25px;
+    height: 120px;
+    left: -26px;
+    top: -9px;
+    background: linear-gradient(78deg, transparent 42%, #c1caca 0, #c1caca 50%, #e3eded 0, #e3eded 58%, transparent 0);
+}
+
+.antenna::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: 'A';
+    display: block;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background: #d34f37;
+    transform: translate(-50%, -48%);
+    background-image: radial-gradient(ellipse 5px 3px, #ffd5ce 99%, transparent 0),
+                                radial-gradient(circle 16px, #f85d41 99%, transparent 0);
+    background-position: 10px -10px, 2px -2px;
+    background-repeat: no-repeat;
+}
+
+.antenna-right {
+    left: auto;
+    right: -26px;
+    background: linear-gradient(-78deg, transparent 42%, #c1caca 0, #c1caca 50%, #e3eded 0, #e3eded 58%, transparent 0);
+}
+
+.antenna-right::before {
+    content: '汉';
+    transform: translate(4%, -48%);
+    font-size: 26px;
+}
+</style>
+</head>
+<body>
+    <div class="robot">
+        <div class="head">
+            <div class="ear ear-left"></div>
+            <div class="ear ear-right"></div>
+            <div class="chin"></div>
+            <div class="hat"></div>
+            <div class="glass"></div>
+            <div class="antenna antenna-left"></div>
+            <div class="antenna antenna-right"></div>
+        </div>
+        <div class="neck"></div>
+        <div class="body">
+            <div class="shoulder"></div>
+            <div class="hand hand-left"></div>
+            <div class="hand hand-right"></div>
+        </div>
+        <div class="foot"></div>
+    </div>
+</body>
+</html>

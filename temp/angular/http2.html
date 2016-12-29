@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head >
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>http2</title>
+<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+    <div ng-controller="myController">
+    	<input ng-model="value">
+    	<button ng-click="test()">测试</button>
+    	<div my-directive></div>
+    </div>
+    <script>
+    	angular.module('myApp', [])
+    	.controller('myController',function($scope,$http){
+    		$scope.value = 'cehsi';
+    		$scope.test = function(){
+    			$http.get('data.json').success(function(data,status,header,config){
+	    			console.log(data,status,header,config);
+	    			 $scope.data = data.data;
+	    		});
+    		}
+    	})
+    	.directive('myDirective',function(){
+    		return{
+    			restricet:'A',
+    			template:"<ul><li ng-repeat='da in data'>\
+    			{{da.name}}</li></ul>"
+    		}
+    	})
+    </script>
+</body>
+</html>

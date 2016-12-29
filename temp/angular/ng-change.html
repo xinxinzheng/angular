@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ng-change</title>
+<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+	<div ng-controller="test">
+		<input type="text" ng-model="someModel.test1" ng-change="change()">
+		<code>{{someModel.result}}</code>
+	</div>
+    <script type="text/javascript">
+    angular.module('myApp',[])
+    .controller('test', function($scope){
+    	$scope.someModel = {};
+    	$scope.change = function(){
+    		$scope.someModel.result = $scope.someModel.test1*2;
+    	}
+    })
+    </script>
+</body>
+</html>

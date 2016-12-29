@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript" src="route.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<script type="text/javascript" src="underscore.js"></script>
+<script type="text/javascript" src="restangular.js"></script>
+</head>
+<body>
+
+    <script>
+    	angular.module('myApp', ['restangular','ngRoute','ngCookies'])
+    	.constant('apiKey','API_KEY')
+    	.constant('ACCESS_LEVELS',{
+    		pub:1,
+    		user:2
+    	})
+    	.config(function(RestangularProvider,apiKey){
+      	  RestangularProvider.setBaseUrl('https://api.mongolab.com/api/1/databases/YOURDB/collections');
+      	  RestangularProvider.setDefaultRequestParams({apiKey:apiKey});
+    	  RestangularProvider.setRestangularFields({id:'_id.$oid'});
+    	  RestangularProvider.setRequestInterceptor(function(){
+    		if(operation == 'put'){
+    			elem._id = undefined;
+    			return elem;
+    		}
+    		return elem;
+    	  })
+    	})
+    	.config(function($routeProvider,ACCESS_LEVELS){
+    		$routeProvider
+    		.when('/',{
+    			controller:'MainController',
+    			templateUrl:'http1.html',
+    			access_level:ACCESS_LEVELS.pub
+    		})
+    		.when('/account',{
+    			controller:'AccountController' , 
+    			templateUrl:'http2.html',
+    			access_level:ACCESS_LEVELS.user
+    		})
+    		.otherwise({
+    			redirectTo:'/'
+    		});
+    	})
+    	.config(function($httpProvider){
+    		var interceptor = function($q,$rootScope,Auth){
+    			return {
+    				'request':function(req){
+    					// req.params  = req.params || {};
+    					// if(Session.isAuthenticated() && !req.params.token){
+    					// 	req.params.token = Auth.getToken();
+    					// }
+    					return req;
+    				},
+    				'requsetError':function(reqErr){
+    					return reqErr;
+    				},
+    				'response':function(resp){
+    					if(resp.config.url == '/api/login'){
+    						Auth.setToken(resp.data.token);
+    					}
+    					return resp;
+    				},
+    				'responseError':function(rejection){
+    					switch(rejection.status){
+    						case 401:{
+    							if(resp.config.url == '/api/login'){
+    								$rootScope.$broadcast('auth:loginRequired');
+    							}
+    							break;
+    						}
+    						case 403:{
+    							$rootScope.$broadcast('auth:forbidden');
+    							break;
+    						}
+    						case 404:{
+    							$rootScope.$broadcast('page:notFound');
+    							break;
+    						}
+    						case 500:{
+    							$rootScope.$broadcast('server:error');
+    							break;
+    						}	
+    					}
+    					return $q.reject(rejection);
+    				}
+    			};
+    		}
+    		$httpProvider.interceptors.push(interceptor);
+    	})
+    	.run(function($rootScope,$location,Auth){
+    		$rootScope.$on('$rootChangeStart',function(evt,next,curr){
+    			if(Auth.isAuthorized(next.$$routh.access_level)){
+    				if(Auth.isLoggedIn()){
+    					$location.path('/');
+    				}else{
+    					$location.path('/login');
+    				}
+    			}
+    		})
+    	})    	
+    	.factory('Auth',function($cookieStore,ACCESS_LEVELS){
+    		var _user = $cookieStore.get('user');
+    		var setUser = function(user){
+    			if(!user.role || user.role < 0){
+    				user.role = ACCESS_LEVELS.pub;
+    			}
+    			_user = user;
+    			$cookieStore.put('user',_user);
+    		}
+    		return {
+    			isAuthorized:function(lvl){
+    				return _user.role >= lvl;
+    			},
+    			setUser:setUser,
+    			isLoggedIn:function(){
+    				return _user ? true : false;
+    			},
+    			getUser:function(){
+    				return _user;
+    			},
+    			getId:function(){
+    				return _user ? _user._id : null;
+    			},
+    			getToken:function(){
+    				return _user ? _user.token : '';
+    			},
+    			logout:function(){
+    				$cookieStore.remove(user);
+    				_user = null ;
+    			}
+    		};
+    	})
+    	.service('Backend',function($http,$q,$rootScope,Auth){
+    		this.getDashboardData = function(){
+    			$http({
+    				method:'GET',
+    				url:'http://myserver.com/api/dashboard',
+    				params:{token:Auth.getToken()}
+    			}).success(function(data){
+    				return data.data;
+    			}).catch(function(reason){
+    				$q.reject(reason);
+    			});
+    		}
+    	});
+    	
+    </script>
+</body>
+</html>

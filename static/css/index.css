@@ -1,0 +1,15 @@
+@charset "UTF-8";
+*{
+	font-size: 14px;
+	font-family: "\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "\5B8B\4F53";
+}
+/*[placeholder]{
+	text-align: center;
+}*/
+.btn{
+	color:white;
+	padding:.5em .8em;
+	background: transparent;
+	border: 1px solid transparent;
+	border-radius:.3em;
+}

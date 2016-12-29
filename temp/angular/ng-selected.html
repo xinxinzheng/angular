@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<title>ng-selected</title>
+<script src="angular.js"></script>
+</head>
+<body>
+    <label>select two fish:</label>
+    <input type="checkbox" ng-model="isTwoFish"></br>
+    <select>
+    	<option>One fish</option>
+    	<option ng-selected="isTwoFish">Two Fish</option>
+    </select>
+    <script>
+    	angular.module('myApp', []);
+    </script>
+</body>
+</html>

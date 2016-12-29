@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>directive</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script src="angular.js"></script>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <p>we can access:{{rootProperty}}</p>
+    <div ng-controller="ParentController">
+    	<p>we can access:{{rootProperty}} and {{parentProperty}}</p> 
+    	<div ng-controller="ChildController">
+    		<p>we can access:{{rootProperty}} and {{parentProperty}} and {{childProperty}}</p>
+    		<p>{{full}}</p>
+    	</div>
+    </div>
+    <script>
+    	angular.module('myApp', []).run(function($rootScope){
+    		$rootScope.rootProperty = "root scopes";
+    	}).controller('ParentController', function($scope){
+    		$scope.parentProperty = "parent scopes";
+    	}).controller('ChildController',function($scope){
+    		$scope.childProperty = "child scopes";
+    		$scope.full = $scope.rootProperty + '___' + $scope.parentProperty + "_____" + $scope.childProperty;
+    	})
+    </script>
+</body>
+</html>

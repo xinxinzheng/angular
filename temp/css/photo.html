@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>photo</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	body{
+		padding:10%;
+	}
+	.photo{
+		position: relative;
+		width:400px;
+		height:500px;
+		background-color:rgba(240,241,101,.5);
+		z-index:9;
+	}
+	.person{
+		position: absolute;
+		width:400px;
+		height:400px;
+		z-index:8;
+	}
+	img{
+		width:400px;
+		z-index:7;
+	}
+	.banner{
+		position: absolute;
+		width:440px;
+		height:110px;
+		left:50%;
+		top:390px;
+		background-color:#E5B1C7;
+		transform:translateX(-50%);
+		z-index:6;
+	}
+	.banner:after{
+		width:0px;
+		height:0px;
+		content:'';
+		display:inline-block;
+		position:absolute;
+		border-top:30px solid #AE81FF;
+		border-left:20px solid transparent;
+		border-right:20px solid transparent;
+		transform:rotate(180deg);
+		top:-30px;
+	}
+	.banner:before{
+		width:0px;
+		height:0px;
+		content:'';
+		display:inline-block;
+		position:absolute;
+		border-top:30px solid #AE81FF;
+		border-left:20px solid transparent;
+		border-right:20px solid transparent;
+		right:0px;
+		top:-30px;
+		transform:rotate(180deg);
+	}
+	.hand{
+		content:'';
+		width:50px;
+		height:50px;
+		display:inline-block;
+		position:absolute;
+		/*background-color:red;*/
+		top:20px;
+		right:20px;
+		border-radius:30px;
+		border:5px solid white;
+		background-image:url('../../static/img/hand.png');
+		z-index:11;
+	}
+</style>
+</head>
+<body>
+    <div class="photo">
+    	<div class="person">
+    		<div class="hand"></div>
+    		<img src="../../static/img/photo.png" />
+    	</div>
+    	<div class="banner">
+    	</div>
+    </div>
+</body>
+</html>

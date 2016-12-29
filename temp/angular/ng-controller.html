@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ng-controller</title>
+<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+  <div ng-controller="SomeController">
+  	{{someModel.someValue}}
+  	<button ng-click="someAction()">测试</button>
+	  	<div ng-controller="ChildController">
+		  	{{someModel.someValue}}
+		  	<button ng-click="childAction()">测试</button>
+	    </div>
+  </div>  
+  <script>
+  	// angular.module('myApp', []).controller('SomeController', function($scope){
+  	// 	$scope.someModel = {
+  	// 		someProperty:'hello computer'
+  	// 	};
+  	// 	$scope.someAction = function(){
+  	// 		$scope.someModel.someProperty = 'hello human';
+  	// 	}
+  	// })
+	
+	// angular.module('myApp', [])
+	// .controller('SomeController', function($scope){
+	// 	$scope.someValue = 'hello computer';
+	// 	$scope.someAction = function(){
+	// 		$scope.someValue = "hello human , from parent";
+	// 	}
+	// })
+	// .controller('ChildController', function($scope){
+	// 	$scope.childAction = function(){
+	// 		$scope.someValue = "hello human , from child";
+	// 	}
+	// })
+
+	angular.module('myApp', [])
+	.controller('SomeController', function($scope){
+		$scope.someModel  = {
+			someValue:'hello computer'
+		};
+		$scope.someAction = function(){
+			$scope.someModel.someValue = "hello human from parent";
+		}
+	})
+	.controller('ChildController', function($scope){
+		$scope.childAction = function(){
+			$scope.someModel.someValue = "hello human from child";
+		}
+	})
+  </script>
+</body>
+</html>

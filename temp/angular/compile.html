@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>compile</title>
+<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+    <level-one>
+        <level-two>
+            <level-three>
+                Hello 
+            </level-three>
+        </level-two>
+    </level-one>
+    <script type="text/javascript">
+    var app = angular.module('myApp', []);
+
+    function createDirective(name){
+      return function(){
+        return {
+          restrict: 'E',
+          compile: function(tElem, tAttrs){
+            console.log(name + ': compile');
+            return {
+              pre: function(scope, iElem, iAttrs){
+                console.log(name + ': pre link');
+              },
+              post: function(scope, iElem, iAttrs){
+                console.log(name + ': post link');
+              }
+            }
+          }
+        }
+      }
+    }
+
+    app.directive('levelOne', createDirective('levelOne'));
+    app.directive('levelTwo', createDirective('levelTwo'));
+    app.directive('levelThree', createDirective('levelThree'));
+    </script>
+</body>
+</html>

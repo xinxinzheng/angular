@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<title>ng-if</title>
+<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+    <div ng-if="2+2===5">
+    	<p>wont see this Dom node , not even in the source code</p>
+    </div>
+    <div ng-if="2+2===4">
+    	<p>Hi , i do exist</p>
+    </div>
+    <script>
+    	angular.module('myApp', [])
+    </script>
+</body>
+</html>

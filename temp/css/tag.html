@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>卡片</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+  body{
+  	padding:10%;
+  }
+	.card{
+		position: relative;
+		width:200px;
+		height:150px;
+		z-index:2;
+		border-radius:10px 5px;
+		background-image:linear-gradient(to bottom , pink 10% , yellow 50% , green 90% , white 100%);
+	}
+	.card:before{
+		content: '';
+		position: absolute;
+		top:-16px;
+		display:block;
+		border:3px solid gray;
+		width:15px;
+		height:15px;
+		border-radius:50% / 50%;
+		transform:skewX(-15deg);
+		left:10%;
+		background-color:transparent;
+		z-index:1;
+	}
+
+	.card:after{
+		content: '';
+		position: absolute;
+		top:-16px;
+		display:block;
+		border:3px solid gray;
+		width:15px;
+		height:15px;
+		border-radius:50% / 50%;
+		transform:skewX(-15deg);
+		right:10%;
+		background-color:transparent;
+		z-index:1;
+	}
+</style>
+</head>
+<body>
+    <div class="card"></div>
+</body>
+</html>

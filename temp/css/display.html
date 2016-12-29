@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>display</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	.content{
+		display:contents;
+		background:#CCCCCC;
+		border:1px solid pink;
+		padding:20px;
+		width:500px;
+		font-size:40px;
+	}
+	.inner{
+		background:green;
+		border:1px solid red;
+		padding:20px;
+	}
+</style>
+</head>
+<body>
+    <div class="content">
+    	<div class="inner">
+    		The element itself does not generate any boxes, but its children and pseudo-elements still generate boxes as normal. For the purposes of box generation and layout, the element must be treated as if it had been replaced with its children and pseudo-elements in the document tree.
+    	</div>
+    </div>
+</body>
+</html>

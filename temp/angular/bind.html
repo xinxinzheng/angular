@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>bind</title>
+<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+	<div ng-controller="nameController">
+  	<direct case="data[0]"></direct>
+		<direct case="data[1]"></direct> 
+	<div>
+<script>
+angular.module('myApp', [])
+.directive("direct",function(){
+	return{
+		restrict: 'ECMA',
+		template: '<div>指令中：{{ case.name }}</div>',
+		scope:{
+			case:'='
+		}
+ 
+  } 
+}) 
+.controller("nameController",function($scope){
+	$scope.data=[{name:"张三"},{name:"李四"}]; 
+});
+    </script>
+</body>
+</html>

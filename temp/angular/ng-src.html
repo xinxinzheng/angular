@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>ng-src</title>
+<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+    <h1>Wrong Way</h1>
+    <img src="{{imgSrc}}">
+
+    <h1>RightWay</h1>
+    <img ng-src="https://www.google.com/images/srpr/logo11w.png">
+
+    <script>
+    	angular.module('myApp',[]).run(function($rootScope,$timeout){
+    		$timeout(function(){
+    			$rootScope.imgSrc = "https://www.google.com/images/srpr/logo11w.png";
+    		},10000);
+    	});
+    </script>
+</body>
+</html>

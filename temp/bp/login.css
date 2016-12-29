@@ -1,0 +1,145 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2016-11-03 17:07:32
+ * @version $Id$
+ */
+ *{}
+ 
+ body{
+ 	position: relative;
+ 	height:1000px;
+ 	background-color: #6699FF;
+ 	background-image: url('/static/img/bp-icon/history.png') 
+ 					,url('/static/img/bp-icon/wifi.png')
+ 					,url('/static/img/bp-icon/wifi.png')
+ 					,url('/static/img/bp-icon/star.png')
+ 					,url('/static/img/bp-icon/star.png')
+ 					,url('/static/img/bp-icon/call_in.png')
+ 					,url('/static/img/bp-icon/friends.png')
+				 	,url('/static/img/bp-icon/comments.png')
+				 	,url('/static/img/bp-icon/drafts.png')
+				 	,url('/static/img/bp-icon/message.png')
+				 	,url('/static/img/bp-icon/unfavourite.png')
+				 	,url('/static/img/bp-icon/add.png')
+				 	,url('/static/img/bp-icon/update.png')
+				 	,url('/static/img/bp-icon/grade.png')
+				 	,url('/static/img/bp-icon/location.png')
+				 	,url('/static/img/bp-icon/pic.png')
+				 	,url('/static/img/bp-icon/search.png')
+				 	,url('/static/img/bp-icon/feedback.png')
+				 	,url('/static/img/bp-icon/at.png')
+				 	,url('/static/img/bp-icon/account.png');
+/*
+				 	92% 20% , history
+				 	89% 33% , feedback
+				 	95% 45% , wifi 15 37
+				 	84% 53% star 2% 33%
+				 	83 24% call_in
+				 	30% 48% friends
+					13%	57% comment
+					 23% 53%drafts
+					 message 2% 69%
+					 18% 47% unfav
+					  add 4% 50%
+					  update 80% 42%
+					  grade 8% 65%
+					  location 11% 45% 
+					  72% 36% pic
+					  search 66% 51%
+					  at 27% 43%
+					  account 76% 58%
+				 	*/
+				 	
+ 	background-repeat: no-repeat;
+ 	background-position: 92% 20% , 95% 45% , 15% 37% , 86% 53% , 2% 33% , 83% 24% , 30% 48% 
+ 	, 13% 57% , 23% 53% , 2% 69% , 18% 47% , 4% 50% , 80% 42% , 8% 65% , 11% 45% ,72% 36% 
+ 	, 66% 51% ,89% 33%, 27% 43% ,76% 55%;
+ }
+ .loginForm{
+	height:276px;
+	width:477px;
+	background-color: white;
+	border-radius:10px;
+	position: absolute;
+	transform:translateX(-50%);
+	left:50%;
+	top:30%;
+ }
+ .loginForm:after{
+ 	content:'';
+ 	height:12px;
+ 	width:440px;
+ 	position: absolute;
+ 	background-color: #B1C3FC;
+ 	border-radius:0 0 5px 5px;
+ 	/*box-shadow: 0px 5px 0px 0px #B1C3FC;*/
+ 	bottom: -12px;
+ 	transform:translateX(-50%);
+ 	left:50%;
+ }
+ .loginForm:before{
+ 	content:'';
+ 	height:10px;
+ 	width:410px;
+ 	position: absolute;
+ 	background-color: #7CA3FE;
+ 	border-radius:0 0 5px 5px;
+ 	/*box-shadow: 0px 5px 0px 0px #B1C3FC;*/
+ 	bottom: -22px;
+ 	transform:translateX(-50%);
+ 	left:50%;
+ }
+ body:hover{
+	animation:back 2s linear 0s infinite normal;
+ }
+
+ @keyframes back{
+ 	from{
+ 		background-position: 92% 20% , 95% 45% , 15% 37% , 86% 53% , 2% 33% , 83% 24% , 30% 48% 
+ 	, 13% 57% , 23% 53% , 2% 69% , 18% 47% , 4% 50% , 80% 42% , 8% 65% , 11% 45% ,72% 36% 
+ 	, 66% 51% ,89% 33%, 27% 43% ,76% 55%;
+ 	}
+ 	15%{
+ 		background-position: 90% 18% , 93% 43% , 17% 35% , 88% 55% , 4% 31% , 81% 26% , 28% 50% 
+ 	, 11% 59% , 23% 55% , 2% 69% , 18% 47% , 4% 50% , 80% 42% , 8% 65% , 11% 45% ,72% 36% 
+ 	, 66% 51% ,89% 33%, 27% 43% ,76% 55%;
+ 	}
+ 	30%{
+ 		background-position: 88% 20% , 91% 45% , 19% 37% , 90% 53% , 6% 33% , 83% 28% , 30% 52% 
+ 	, 9% 57% , 23% 57% , 2% 69% , 18% 47% , 4% 50% , 80% 42% , 8% 65% , 11% 45% ,72% 36% 
+ 	, 66% 51% ,89% 33%, 27% 43% ,76% 55%;
+ 	}
+ 	45%{
+ 		background-position: 86% 22% , 89% 47% , 21% 39% , 92% 51% , 8% 35% , 85% 30% , 32% 54% 
+ 	, 7% 55% , 23% 59% , 2% 69% , 18% 47% , 4% 50% , 80% 42% , 8% 65% , 11% 45% ,72% 36% 
+ 	, 66% 51% ,89% 33%, 27% 43% ,76% 55%;
+ 	}
+ 	60%{
+ 		background-position: 84% 20% , 87% 45% , 23% 37% , 94% 53% , 10% 33% , 83% 32% , 30% 56% 
+ 	, 5% 57% , 23% 61% , 2% 69% , 18% 47% , 4% 50% , 80% 42% , 8% 65% , 11% 45% ,72% 36% 
+ 	, 66% 51% ,89% 33%, 27% 43% ,76% 55%;
+ 	}
+ 	75%{
+ 		background-position: 86% 22% , 89% 47% , 21% 39% , 92% 51% , 8% 35% , 85% 30% , 32% 54% 
+ 	, 7% 55% , 23% 53% , 2% 69% , 18% 47% , 4% 50% , 80% 42% , 8% 65% , 11% 45% ,72% 36% 
+ 	, 66% 51% ,89% 33%, 27% 43% ,76% 55%;
+ 	}
+ 	85%{
+ 		background-position: 88% 20%, 91% 45% , 19% 37% , 90% 53% , 6% 33% , 83% 28% , 30% 52% 
+ 	, 9% 57% , 23% 53% , 2% 69% , 18% 47% , 4% 50% , 80% 42% , 8% 65% , 11% 45% ,72% 36% 
+ 	, 66% 51% ,89% 33%, 27% 43% ,76% 55%;
+ 	}
+ 	95%{
+ 		background-position: 91% 19% , 94% 44% , 17% 35% , 88% 55% , 4% 31% , 81% 26% , 28% 50% 
+ 	, 11% 59% , 23% 53% , 2% 69% , 18% 47% , 4% 50% , 80% 42% , 8% 65% , 11% 45% ,72% 36% 
+ 	, 66% 51% ,89% 33%, 27% 43% ,76% 55%;
+ 	}
+ 	100%{
+ 		background-position: 92% 20% , 95% 45% , 15% 37% , 86% 53% , 2% 33% , 83% 24% , 30% 48% 
+ 	, 13% 57% , 23% 53% , 2% 69% , 18% 47% , 4% 50% , 80% 42% , 8% 65% , 11% 45% ,72% 36% 
+ 	, 66% 51% ,89% 33%, 27% 43% ,76% 55%;
+ 	}
+
+ }

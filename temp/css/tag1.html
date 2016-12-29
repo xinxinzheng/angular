@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>tag</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<style type="text/css">
+	.tag{
+		height:50px;
+		width:100px;
+		background-color:#69799A;
+		position: relative;
+		text-align:center;
+		line-height:50px;
+		color:white;
+		font-family:"微软雅黑";
+	}
+	.tag:after{
+		content:"";
+		width:0px;
+		height:0px;
+		position:absolute;
+		border-width:25px ;
+		border-style:solid ;
+		left:100px;
+		bottom:0px;
+		border-color:transparent transparent transparent #69799A;
+
+	}
+	.action{
+		display:inline-block;
+		position:absolute;
+		transform:translateX(-50%);
+		left:100%;
+		z-index:2;
+	}
+</style>
+</head>
+<body>
+    <div class="tag">tag1<a class="action">+</a></div>
+</body>
+</html>

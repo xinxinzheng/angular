@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>transclude</title>
+<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+    <div sideboxtitle="Links">
+    	<ul>
+    		<li>first link</li>
+    		<li>second link</li>
+    	</ul>
+    </div>
+    <div sideboxtitle="TagCloud">
+    	<div class="tagcloud">
+    		<a href="">zheng</a>
+    		<a href="">tai</a>
+    		<a href="">xin</a>
+    		<a href="">test</a>
+    		<a href="">hua</a>
+    	</div>
+    </div>
+    <script>
+    	angular.module('myApp', [])
+    	.directive('sideboxtitle',function(){
+    		return {
+    			restrict:'EA',
+    			scope:{
+    				title:'@sideboxtitle'
+    			},
+    			transclude:true,
+    			template:'<div class="sidebox"><div class="content"><h2 class="header">{{title}}</h2><span class="content" ng-transclude></span></div></div>'
+
+    		};
+    	});
+    </script>
+</body>
+</html>
