@@ -9,9 +9,7 @@
  * 主页面
  */
 
-var App = angular.module('myApp', ['ui.router', 'ngMessages']).controller('commonCtrl', function ($rootScope, $scope) {
-  console.log(123);
-});
+var App = angular.module('myApp', ['ui.router', 'ngMessages']).constant('urlPre', "http://localhost/").controller('commonCtrl', function ($rootScope, $scope, urlPre) {});
 
 // Source: static/js/route/route.js
 /**
@@ -45,8 +43,14 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 /**
  * 登录逻辑
  */
-App.controller('LoginCtrl', ['$scope', '$rootScope', '$httpProvider', function ($scope, $rootScope, $http) {
+App.controller('LoginCtrl', ['$scope', '$rootScope', '$http', 'urlPre', function ($scope, $rootScope, $http, urlPre) {
+
   $scope.login = function () {
-    $scope.http();
+    console.log(1234);
+    $http({
+      method: 'POST',
+      url: urlPre + 'build/interfaces/login.php',
+      data: { username: $scope.username, password: $scope.password }
+    }).success(function (data) {}).error(function (data, status) {});
   };
 }]);

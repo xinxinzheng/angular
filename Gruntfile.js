@@ -59,7 +59,7 @@
 
         watch: {
             js: {
-                files: ['static/js/*/*.js','Gruntfile.js'],
+                files: ['static/js/*/*.js','Gruntfile.js','static/js/index.js'],
                 tasks: ['less','concat:js','babel:js'],
             },
             html: {
@@ -83,7 +83,7 @@
             dev: {
                 options: {
                     port: 8080,
-                    base: ['static', 'temp']
+                    base: ['static', 'temp', 'build']
                 }
             },
             // prod: {

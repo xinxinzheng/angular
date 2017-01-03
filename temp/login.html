@@ -9,10 +9,10 @@
 <link href="css/common/login.css" rel="stylesheet">
 </head>
 <body>
-    <div controller="LoginCtrl" class="login">
+    <div ng-controller="LoginCtrl" class="login">
     	<input type="text" ng-modal="username" placeholder="用 户 名">
-    	<input type="text" ng-modal="password" placeholder="密 码">
-    	<button class="btn logBtn" ng-click="$scope.login">登录</button>
+    	<input type="password" ng-modal="password" placeholder="密 码">
+    	<button class="btn logBtn" ng-click="login()">登录</button>
     </div>
     <div class="bubble b-pink pink1">
     	<!--<div class="water"></div>-->

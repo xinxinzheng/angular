@@ -7,7 +7,8 @@
  */
 
 var App = angular.module('myApp',['ui.router','ngMessages'])
- .controller('commonCtrl', function($rootScope,$scope){
- 	console.log(123);
+ .constant('urlPre',"http://localhost/")
+ .controller('commonCtrl', function($rootScope,$scope,urlPre){
+ 	
  });
 
