@@ -1,10 +1,13 @@
 <?php
 /**
  *
- * @authors Your Name (you@example.org)
- * @date    2017-01-03 14:10:33
- * @version $Id$
-Login 逻辑
+ * @authors Your Name
+ * Login 逻辑
  */
+header('Access-Control-Allow-Origin:http://localhost:8080');
+header('Access-Control-Allow-Headers: X-Requested-With, Content-Type');
+
+$data = array("data" => true);
+die(json_encode($data));
 
 ?>
