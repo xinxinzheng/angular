@@ -11,7 +11,7 @@
 
 var App = angular.module('myApp', ['ui.router', 'ngMessages']).config(function ($httpProvider) {
   // $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = 'Content-Type, Access-Control-Allow-Origin';
-}).constant('urlPre', "http://localhost/").controller('commonCtrl', function ($rootScope, $scope, urlPre) {});
+}).constant('urlPre', "http://localhost/").controller('CommonCtrl', function ($rootScope, $scope, urlPre) {}).controller('AdminCtrl', function ($rootScope, $scope) {});
 
 // Source: static/js/route/route.js
 /**
@@ -22,13 +22,15 @@ var App = angular.module('myApp', ['ui.router', 'ngMessages']).config(function (
  */
 
 App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
-  $stateProvider.state('/', {
-    url: '/',
-    templateUrl: 'login.html',
-    data: {
-      pageTitle: '小透明的随笔 '
-    }
+  $urlRouterProvider.otherwise('app.common');
+  $stateProvider.state('app', {
+    url: '/app',
+    templateUrl: 'index.html',
+    controller: 'CommonCtrl'
+  }).state('app.common', {
+    url: '/body',
+    templateUrl: '/common/body.html',
+    controller: 'AdminCtrl'
   });
 }]);
 
@@ -45,14 +47,14 @@ App.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 /**
  * 登录逻辑
  */
-App.controller('LoginCtrl', ['$scope', '$rootScope', '$http', 'urlPre', function ($scope, $rootScope, $http, urlPre) {
-
+App.controller('LoginCtrl', function ($scope, $rootScope, $http, $location, $state, urlPre) {
   $scope.login = function () {
-    console.log(1234);
     $http({
       method: 'POST',
       url: urlPre + 'build/interfaces/login.php',
       data: { username: $scope.username, password: $scope.password }
-    }).success(function (data) {}).error(function (data, status) {});
+    }).success(function (data) {
+      $state.go('app');
+    }).error(function (data, status) {});
   };
-}]);
+});

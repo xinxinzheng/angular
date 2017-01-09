@@ -11,7 +11,10 @@ var App = angular.module('myApp',['ui.router','ngMessages'])
  	// $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = 'Content-Type, Access-Control-Allow-Origin';
  })
  .constant('urlPre',"http://localhost/")
- .controller('commonCtrl', function($rootScope,$scope,urlPre){
+ .controller('CommonCtrl', function($rootScope,$scope,urlPre){
  	
+ })
+ .controller('AdminCtrl',function($rootScope,$scope){
+
  });
 

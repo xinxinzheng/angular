@@ -6,13 +6,17 @@
  */
 
 App.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
-    $urlRouterProvider.otherwise('/');
-    $stateProvider
-        .state('/', {
-            url: '/',
-            templateUrl: 'login.html',
-            data: {
-            	pageTitle: '小透明的随笔 '
-            }
-        })           
+    $urlRouterProvider.otherwise('app.common');
+    $stateProvider 
+    	.state('app',{
+        	url:'/app',
+        	templateUrl:'index.html',
+        	controller:'CommonCtrl'
+        }) 
+        .state('app.common',{
+        	url:'/body',
+        	templateUrl:'/common/body.html',
+        	controller:'AdminCtrl'
+        });
+      
 }]);
