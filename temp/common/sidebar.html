@@ -1,0 +1,16 @@
+<div ng-controller="mySideBar">
+	<ul>
+		<li ng-repeat="item in sitems">
+			<a ng-href="{item.url}">
+			{{item.title}}
+			</a>
+			<ul>
+				<li ng-repeat="side in item" >
+					<a ng-href="{}">
+						{{side.title}}
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

@@ -6,16 +6,16 @@
  */
 
 App.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterProvider) => {
-    $urlRouterProvider.otherwise('app.common');
+    $urlRouterProvider.otherwise('temp');
     $stateProvider 
-    	.state('app',{
-        	url:'/app',
-        	templateUrl:'index.html',
+    	.state('temp',{
+        	url:'/temp',
+        	templateUrl:'common/body.html',
         	controller:'CommonCtrl'
         }) 
-        .state('app.common',{
+        .state('temp.common',{
         	url:'/body',
-        	templateUrl:'/common/body.html',
+        	templateUrl:'common/body.html',
         	controller:'AdminCtrl'
         });
       

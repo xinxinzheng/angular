@@ -5,14 +5,14 @@
 <script type="text/javascript" src="angular.js"></script>
 </head>
 <body>
-    <div ng-include="test.html" ng-controller="myController" ng-init="name='zhengxinxin'">
-    	hello {{name}}
+    <div ng-include="'test.html'" ng-controller="myController" ng-init="name='zhengxinxin'">
+    	<!-- hello {{name}} -->
     </div>
     <script>
-    	// angular.module('myApp', [])
-     //    .controller('myController', function($scope){
-    	// 	$scope.name = "zhengxinxin";
-    	// });
+    	angular.module('myApp', [])
+        .controller('myController', function($scope){
+    		// $scope.name = "zhengxinxin";
+    	});
     </script>
 </body>
 </html>

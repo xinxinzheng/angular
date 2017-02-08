@@ -60,30 +60,34 @@
         watch: {
             js: {
                 files: ['static/js/*/*.js','Gruntfile.js','static/js/index.js'],
-                tasks: ['less','concat:js','babel:js'],
+                tasks: ['less','concat:js'],
+                // tasks: ['less','concat:js','babel:js'],
             },
             html: {
                 files: ['temp/**/*.html'],
                 tasks: ['less'],
             },
             css: {
-                files: ['static/less/**/*.less'],
+                files: ['static/less/**/*.less','static/less/index.less'],
                 tasks: ['less'],
             },
         },
 
         less: {
             main: {
-                 src: ['static/less/common/login.less'],
-                 dest: 'static/css/common/login.css', 
-            }
+                expand: true,
+                cwd:'static/less',
+                src: ['*.less','**/*.less'],
+                dest: 'static/css',
+                ext: '.css'
+            },
         },
 
   		connect: {
             dev: {
                 options: {
                     port: 8080,
-                    base: ['static', 'temp', 'build']
+                    base: ['static','temp','node_modules']
                 }
             },
             // prod: {

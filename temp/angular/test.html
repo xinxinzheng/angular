@@ -1,2 +1,48 @@
 
-    这是一个测试文件
+<script type="text/javascript">
+	$scope.canvas = document.getElementById("header").getContext('2d');
+ 	$scope.canvas.fillStyle = 'rgb(230,219,90)';
+ 	$scope.canvas.fillRect(10,10,100,100);
+ 	$scope.canvas.clearRect(30,30,60,60);
+ 	$scope.canvas.fillStyle = 'rgb(240,81,51)';
+ 	$scope.canvas.strokeRect(50,50,20,20);
+
+ 	$scope.canvas.beginPath();
+ 	$scope.canvas.moveTo(130,10);
+ 	$scope.canvas.lineTo(130,50);
+ 	$scope.canvas.lineTo(145,30);
+ 	$scope.canvas.fill();
+ 	$scope.canvas.closePath();
+
+ 	$scope.canvas.beginPath();
+ 	$scope.canvas.moveTo(160,10);
+ 	$scope.canvas.lineTo(160,50);
+ 	$scope.canvas.lineTo(185,30);
+ 	$scope.canvas.closePath();
+ 	$scope.canvas.stroke();
+
+ 	$scope.canvas.beginPath();
+ 	$scope.canvas.arc(400,50,50,0,Math.PI*2,true);
+ 	$scope.canvas.fill();
+ 	$scope.canvas.closePath();
+
+ 	$scope.canvas.beginPath();
+    $scope.canvas.moveTo(75,25);
+    $scope.canvas.quadraticCurveTo(25,25,25,62.5);
+    $scope.canvas.quadraticCurveTo(25,100,50,100);
+    $scope.canvas.quadraticCurveTo(50,120,30,125);
+    $scope.canvas.quadraticCurveTo(60,120,65,100);
+    $scope.canvas.quadraticCurveTo(125,100,125,62.5);
+    $scope.canvas.quadraticCurveTo(125,25,75,25);
+    $scope.canvas.stroke();
+
+    $scope.canvas.beginPath();
+    $scope.canvas.moveTo(75,40);
+    $scope.canvas.bezierCurveTo(75,37,70,25,50,25);
+    $scope.canvas.bezierCurveTo(20,25,20,62.5,20,62.5);
+    $scope.canvas.bezierCurveTo(20,80,40,102,75,120);
+    $scope.canvas.bezierCurveTo(110,102,130,80,130,62.5);
+    $scope.canvas.bezierCurveTo(130,62.5,130,25,100,25);
+    $scope.canvas.bezierCurveTo(85,25,75,37,75,40);
+    $scope.canvas.fill();
+</script>
