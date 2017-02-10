@@ -6,9 +6,9 @@
  * 主页面
  */
 
-var App = angular.module('myApp',['ui.router','ngMessages','angular-markdown-editor','hc.marked', 'hljs',])
+var App = angular.module('myApp',['ui.router','ngMessages','angular-markdown-editor','hc.marked', 'hljs'])
  .config(function($httpProvider){
- 	// $httpProvider.defaults.headers.common['Access-Control-Allow-Headers'] = 'Content-Type, Access-Control-Allow-Origin';
+ 	
  })
  .config(['markedProvider', 'hljsServiceProvider', function(markedProvider, hljsServiceProvider) {
     // marked config
@@ -38,12 +38,28 @@ var App = angular.module('myApp',['ui.router','ngMessages','angular-markdown-edi
  .controller('AdminCtrl',function($rootScope,$scope){
 
  })
- .controller('headerCtrl',function($rootScope,$scope){
- 	
+ .controller('headerCtrl',function($rootScope,$scope){	
 
+ })
+ .controller('footerCtrl',function($rootScope,$scope){
+    $scope.updatePath = () => {
+        var randomx = Math.random() * 400 , attr = 'M0 0 ' , i = 0;
+        while(i < 8){
+            var randomy = Math.random() * 30 ;
+            attr += ' L ' + (randomx * i).toFixed(1) + ' ' + randomy.toFixed(1) + ' ';
+            i++;
+        }
+        attr += ' L2000 100 L0 200 L0 0 z';
+        $("#footer").attr('d',attr);
+    }
+    $scope.updatePath();
+    setInterval(function(){
+        $scope.updatePath();
+    },3000)
  })
  .controller('addArticle',function(urlPre,$http,$rootScope,$scope,marked){
     $scope.markdownService = marked('#TEST');
+    $scope.contents = 'Hello world';
     $scope.convertMarkdown = function() {
         vm.convertedMarkdown = marked(vm.markdown);
     }
@@ -57,6 +73,11 @@ var App = angular.module('myApp',['ui.router','ngMessages','angular-markdown-edi
     $scope.onFullScreenExitCallback = function(e) {
         e.hidePreview();
     }
+    $scope.hideNote = () => {
+        setTimeout(function(){
+               $("span.note_tag").css('display','none'); 
+            },1000)
+    }
     $scope.saveArticle = () => {
     	$http({
     		method:'POST',
@@ -65,10 +86,14 @@ var App = angular.module('myApp',['ui.router','ngMessages','angular-markdown-edi
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     	})
     	.success((ret) => {
-    		console.log(ret);
+    		$("span.note_tag").css('display','inline-block');
+            $("span.note_tag").html('保存成功！');
+            $scope.hideNote();
     	})
-    	.error(() => {
-
+    	.error((ret) => {
+            $("span.note_tag").css('display','inline-block');
+            $("span.note_tag").html('保存失败！');
+            $scope.hideNote();
     	});
     }
  })

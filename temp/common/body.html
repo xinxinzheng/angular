@@ -2,6 +2,7 @@
   <div class="title form-group">
 	<label>文章标题</label>
 	<button class="btn save-article" ng-click='saveArticle()'>保存</button>
+	<span class="note_tag"></span>
 	<input type="text" class="form-control" name='title' ng-model="titles">  
   </div>
   <div class="content">
@@ -14,7 +15,8 @@
         rows="30"
 	></textarea>
 	</div>
-	<div marked="contents" class="markdown preview" style="padding: 10px"></div>
+	<div marked="contents" class="markdown preview"
+	 style="padding: 10px;max-height:666px;overflow: auto;"></div>
   </div>
   <div class="tag">
 	

@@ -23,12 +23,13 @@
   <script type="text/javascript" src="angular-highlightjs/src/angular-highlightjs.js"></script>
   <script type="text/javascript" src="bootstrap-markdown/locale/bootstrap-markdown.fr.js"></script>
   <script type="text/javascript" src="angular-markdown-editor/src/angular-markdown-editor.js"></script>
+  <script type="text/javascript" src="angular-mocks/angular-mocks.js"></script>
 </head>
 
   <body ng-controller="CommonCtrl">
     <div ng-include="'/common/header.html'" ></div>
     <div ui-view></div>
-    <footer ng-include="'/common/footer.html'" ></footer>
+    <div ng-include="'/common/footer.html'" ></div>
     <script type="text/javascript" src="js/all.js"></script>
   </body>
 </html>

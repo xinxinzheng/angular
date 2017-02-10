@@ -11,12 +11,10 @@ App.config(['$stateProvider', '$urlRouterProvider', ($stateProvider, $urlRouterP
     	.state('temp',{
         	url:'/temp',
         	templateUrl:'common/body.html',
-        	controller:'CommonCtrl'
         }) 
-        .state('temp.common',{
-        	url:'/body',
-        	templateUrl:'common/body.html',
-        	controller:'AdminCtrl'
+        .state('article',{
+        	url:'/article',
+        	templateUrl:'common/article_list.html',
         });
       
 }]);
