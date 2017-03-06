@@ -1,0 +1,69 @@
+{
+  "name": "angular-markdown-editor",
+  "version": "1.1.1",
+  "author": {
+    "name": "Ghislain B."
+  },
+  "description": "Angular Markdown Editor, all-in-one Markdown Editor and Preview",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "markdown",
+    "bootstrap-markdown",
+    "angular-markdown-editor"
+  ],
+  "dependencies": {
+    "angular-highlightjs": "^0.6.1",
+    "angular-marked": "^1.2.2",
+    "angular-sanitize": "^1.5.8",
+    "bootstrap": "^3.3.6",
+    "bootstrap-markdown": "^2.10.0",
+    "highlight.js": "^9.5.0",
+    "jquery": "^2.2.4",
+    "marked": "^0.3.5"
+  },
+  "devDependencies": {
+    "font-awesome": "^4.6.3"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/ghiscoding/angular-markdown-editor",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ghiscoding/angular-markdown-editor.git"
+  },
+  "gitHead": "03d14312c982b7d6fd19fbf94b473e3d5a3ee43c",
+  "bugs": {
+    "url": "https://github.com/ghiscoding/angular-markdown-editor/issues"
+  },
+  "_id": "angular-markdown-editor@1.1.1",
+  "_shasum": "347fb2824f407f5509d5bc656b96605198d8c894",
+  "_from": "angular-markdown-editor@latest",
+  "_npmVersion": "3.8.0",
+  "_nodeVersion": "7.0.0",
+  "_npmUser": {
+    "name": "ghiscoding",
+    "email": "gbeaulac@gmail.com"
+  },
+  "dist": {
+    "shasum": "347fb2824f407f5509d5bc656b96605198d8c894",
+    "size": 45799,
+    "noattachment": false,
+    "tarball": "http://r.cnpmjs.org/angular-markdown-editor/download/angular-markdown-editor-1.1.1.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "ghiscoding",
+      "email": "gbeaulac@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/angular-markdown-editor-1.1.1.tgz_1480030155344_0.42253549257293344"
+  },
+  "directories": {},
+  "publish_time": 1480030157647,
+  "_cnpm_publish_time": 1480030157647,
+  "_resolved": "http://r.cnpmjs.org/angular-markdown-editor/download/angular-markdown-editor-1.1.1.tgz"
+}
