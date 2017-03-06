@@ -9,8 +9,8 @@
             },
  
             js: {
-                src:['static/js/all.js'],
-                dest:'static/js/all.js'
+                src:['public/static/js/all.js'],
+                dest:'public/static/js/all.js'
             },
         },
 		uglify:{
@@ -26,12 +26,12 @@
 		},
 
 		jshint:{
-			files:['Gruntfile.js','static/js/all.js'],
+			files:['Gruntfile.js','public/static/js/all.js'],
 		},
 
 		csslint:{
 			options:{},
-			files:['static/css/**/*.css'],
+			files:['build/static/css/**/*.css'],
 		},
 		
         concat: {
@@ -47,19 +47,19 @@
             },
     		js: {
       			src: [
-                    'static/js/index.js'
-                    ,'static/js/route/*.js'
-                    ,'static/js/filter/*.js'                   
-                    ,'static/js/factory/*.js'
-                    ,'static/js/ctrl/*.js'
+                    'public/static/js/index.js'
+                    ,'public/static/js/route/*.js'
+                    ,'public/static/js/filter/*.js'                   
+                    ,'public/static/js/factory/*.js'
+                    ,'public/static/js/ctrl/*.js'
                 ],
-      			dest: 'static/js/all.js',
+      			dest: 'public/static/js/all.js',
     		},
   		},
 
         watch: {
             js: {
-                files: ['static/js/*/*.js','Gruntfile.js','static/js/index.js'],
+                files: ['public/static/js/*/*.js','Gruntfile.js','public/static/js/index.js'],
                 tasks: ['less','concat:js'],
                 // tasks: ['less','concat:js','babel:js'],
             },
@@ -68,7 +68,7 @@
                 tasks: ['less'],
             },
             css: {
-                files: ['static/less/**/*.less','static/less/index.less'],
+                files: ['public/static/less/**/*.less','public/static/less/index.less'],
                 tasks: ['less'],
             },
         },
@@ -76,18 +76,33 @@
         less: {
             main: {
                 expand: true,
-                cwd:'static/less',
+                cwd:'public/static/less',
                 src: ['*.less','**/*.less'],
-                dest: 'static/css',
+                dest: 'build/static/css',
                 ext: '.css'
             },
         },
-
+        copy: {
+            main: {
+                files: [{
+                    expand: true,
+                    cwd: 'public/',
+                    src: ['**'],
+                    dest: 'build/'
+                },{
+                    expand: true,
+                    cwd: 'temp/',
+                    src: ['**'],
+                    dest: 'build'
+                }]
+            }
+        },
+        clean: ['build'], 
   		connect: {
             dev: {
                 options: {
                     port: 8080,
-                    base: ['static','temp','node_modules']
+                    base: ['public','temp','node_modules']
                 }
             },
             // prod: {
@@ -107,10 +122,17 @@
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+     grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-babel');
 
 	// grunt.registerTask('default',['less','concat','babel:js','uglify','connect','watch']);
-    grunt.registerTask('default',['less','concat','uglify','connect','watch']);
+    // grunt.registerTask('default',['less','concat','uglify','connect','watch']);
+    grunt.registerTask('default',['less','connect','concat','watch']);
+    
+    grunt.registerTask('test', ['jshint','copy','karma:continuous']);
+    
+    grunt.registerTask('package', ['clean','less','copy','uglify']);
     
   };
 
